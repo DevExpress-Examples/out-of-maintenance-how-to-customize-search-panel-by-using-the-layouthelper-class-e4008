@@ -1,5 +1,4 @@
-﻿Imports Microsoft.VisualBasic
-Imports System
+﻿Imports System
 Imports System.Windows
 Imports System.Windows.Controls
 Imports DevExpress.Xpf.Core.Native
@@ -10,6 +9,7 @@ Imports DevExpress.XtraRichEdit.Commands
 Namespace RichEditSearchPanelWpf
 	Partial Public Class MainWindow
 		Inherits Window
+
 		Private searchPanel As RichEditSearchPanel
 
 		Public Sub New()
@@ -23,7 +23,7 @@ Namespace RichEditSearchPanelWpf
 		End Sub
 
 		Private Sub searchPanel_LayoutUpdated(ByVal sender As Object, ByVal e As EventArgs)
-            Dim lbPrompt As TextBlock = TryCast(LayoutHelper.FindElement(searchPanel, Function(element) TypeOf element Is TextBlock AndAlso (CType(element, TextBlock)).Text.Contains("Find")), TextBlock)
+			Dim lbPrompt As TextBlock = TryCast(LayoutHelper.FindElement(searchPanel, Function(element) TypeOf element Is TextBlock AndAlso CType(element, TextBlock).Text.Contains("Find")), TextBlock)
 			Dim tbSearchString As ButtonEdit = CType(LayoutHelper.FindElementByName(searchPanel, "tbSearchString"), ButtonEdit)
 
 			If lbPrompt IsNot Nothing AndAlso tbSearchString IsNot Nothing Then
